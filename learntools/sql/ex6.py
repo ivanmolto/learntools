@@ -73,6 +73,7 @@ This is exactly what you will do over the next few questions.
 
 # (3)
 class SelectRightQuestions(CodingProblem):
+    pass
     _vars = ['questions_query', 'questions_results']
     def check(self, query, results):
         # check 1: words appear in query
@@ -109,6 +110,7 @@ questions_results = questions_query_job.to_dataframe()
 
 # (4)
 class FirstJoin(CodingProblem):
+    pass
     _vars = ['answers_query', 'answers_results']
     def check(self, query, results):
         # check 1: words appear in query
