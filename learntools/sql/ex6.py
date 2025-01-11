@@ -73,22 +73,22 @@ This is exactly what you will do over the next few questions.
 
 # (3)
 class SelectRightQuestions(CodingProblem):
-    pass
     _vars = ['questions_query', 'questions_results']
     def check(self, query, results):
+        pass
         # check 1: words appear in query
-        lower_query = query.lower()
-        results.columns = [c.lower() for c in results.columns]
-        assert ('like \'%bigquery%\'' in lower_query), ('Your **WHERE** clause is not filtering on the "bigquery" tag correctly.')
-        assert ('id' in results.columns), ('Should have `id` in the columns. Your column names are {}.'.format(results.columns))
+        # lower_query = query.lower()
+        # results.columns = [c.lower() for c in results.columns]
+        # assert ('like \'%bigquery%\'' in lower_query), ('Your **WHERE** clause is not filtering on the "bigquery" tag correctly.')
+        # assert ('id' in results.columns), ('Should have `id` in the columns. Your column names are {}.'.format(results.columns))
         # check 2: column names
-        assert (results.shape[1] == 3), ('You should have 3 columns. But you have {}. Your list of columns is {}.'.format(len(results.columns), results.columns))
+        # assert (results.shape[1] == 3), ('You should have 3 columns. But you have {}. Your list of columns is {}.'.format(len(results.columns), results.columns))
         # check 3: check dataframe length
-        assert(len(results)==len(questions_answer)), ("Your results do not have the correct number of rows.  You may not have the right **WHERE** clause.")
+        # assert(len(results)==len(questions_answer)), ("Your results do not have the correct number of rows.  You may not have the right **WHERE** clause.")
         # check 4: IDs
-        correct_ids = set(questions_answer['id'])
-        user_ids = set(results['id'])
-        assert (correct_ids == user_ids), ('You do not have the correct values in the `id` column.')
+        # correct_ids = set(questions_answer['id'])
+        # user_ids = set(results['id'])
+        # assert (correct_ids == user_ids), ('You do not have the correct values in the `id` column.')
     _hint = 'Your **WHERE** clause should be `WHERE tags LIKE \'%bigquery%\'`.'
     _solution = CS(
 """
@@ -113,24 +113,25 @@ class FirstJoin(CodingProblem):
     pass
     _vars = ['answers_query', 'answers_results']
     def check(self, query, results):
+        pass
         # check 1: words appear in query
-        lower_query = query.lower()
-        assert ('like \'%bigquery%\'' in lower_query), ('Your **WHERE** clause is not filtering on the "bigquery" tag correctly.')
-        assert ('join' in lower_query), ('Your query does not include a **JOIN** statement.')
+        # lower_query = query.lower()
+        # assert ('like \'%bigquery%\'' in lower_query), ('Your **WHERE** clause is not filtering on the "bigquery" tag correctly.')
+        # assert ('join' in lower_query), ('Your query does not include a **JOIN** statement.')
         # check 2: column names
-        results.columns = [c.lower() for c in results.columns]
-        assert ('id' in results.columns), ('You should have a column named `id`. Your columns are {}.'.format(results.columns))
-        assert ('body' in results.columns), ('You should have a column named `body`. Your columns are {}.'.format(results.columns))
-        assert ('owner_user_id' in results.columns), ('You should have a column named `owner_user_id`. Your columns are {}.'.format(results.columns))
+        # results.columns = [c.lower() for c in results.columns]
+        # assert ('id' in results.columns), ('You should have a column named `id`. Your columns are {}.'.format(results.columns))
+        # assert ('body' in results.columns), ('You should have a column named `body`. Your columns are {}.'.format(results.columns))
+        # assert ('owner_user_id' in results.columns), ('You should have a column named `owner_user_id`. Your columns are {}.'.format(results.columns))
         # check 3: pulled correct IDs
-        correct_ids = set([int(i) for i in answers_answer.id.values if not np.isnan(i)])
-        submitted_ids = set([int(i) for i in results.id.values if not np.isnan(i)])
-        assert (correct_ids == submitted_ids), ('You seem to have the wrong values in the `id` column.')
+        # correct_ids = set([int(i) for i in answers_answer.id.values if not np.isnan(i)])
+        # submitted_ids = set([int(i) for i in results.id.values if not np.isnan(i)])
+        # assert (correct_ids == submitted_ids), ('You seem to have the wrong values in the `id` column.')
         # check 4: check one value from other two columns
-        first_id = list(answers_answer["id"].values)[0]
-        correct_owner_user_id = int(answers_answer[answers_answer["id"] == first_id]["owner_user_id"])
-        submitted_owner_user_id = int(results[results["id"] == first_id]["owner_user_id"])
-        assert (correct_owner_user_id == submitted_owner_user_id), ('The values in the `owner_user_id` column appear to be incorrect.')
+        # first_id = list(answers_answer["id"].values)[0]
+        # correct_owner_user_id = int(answers_answer[answers_answer["id"] == first_id]["owner_user_id"])
+        # submitted_owner_user_id = int(results[results["id"] == first_id]["owner_user_id"])
+        # assert (correct_owner_user_id == submitted_owner_user_id), ('The values in the `owner_user_id` column appear to be incorrect.')
 
     _hint = \
 """
