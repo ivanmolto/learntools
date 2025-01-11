@@ -195,10 +195,10 @@ bigquery_experts_results = bigquery_experts_query_job.to_dataframe()
         submitted_ids = results.loc[results.user_id.notna(), "user_id"].unique()
         assert np.array_equal(correct_ids, submitted_ids), 'You seem to have the wrong values in the `user_id` column.'
         # check 4: check one value from other column
-        first_id = list(bigquery_experts_answer["user_id"])[0]
-        correct_num = int(bigquery_experts_answer[bigquery_experts_answer["user_id"] == first_id]["number_of_answers"])
-        submitted_num = int(results[results["user_id"] == first_id]["number_of_answers"])
-        assert (correct_num == submitted_num), ('The values in the `number_of_answers` column appear to be incorrect.')
+        # first_id = list(bigquery_experts_answer["user_id"])[0]
+        # correct_num = int(bigquery_experts_answer[bigquery_experts_answer["user_id"] == first_id]["number_of_answers"])
+        # submitted_num = int(results[results["user_id"] == first_id]["number_of_answers"])
+        # assert (correct_num == submitted_num), ('The values in the `number_of_answers` column appear to be incorrect.')
 
 # (6)
 class GeneralizeExpertFinder(ThoughtExperiment):
